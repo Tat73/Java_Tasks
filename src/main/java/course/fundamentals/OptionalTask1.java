@@ -16,9 +16,13 @@ public class OptionalTask1 {
         reverseSort(arr);
         System.out.println();
 
+        System.out.println("length more or less than average: ");
+        numberAverageLength(arr);
+        System.out.println();
+
     }
 
-    public static int[] numbers(){
+    public static int[] numbers() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Entry an array length: ");
         int size = scan.nextInt();
@@ -34,7 +38,7 @@ public class OptionalTask1 {
     /*
     1.   Найти самое короткое и самое длинное число. Вывести найденные числа и их длину.
      */
-    public static void numberLength(int[] array){
+    public static void numberLength(int[] array) {
         int shortNum = array[0];
         int longNum = array[0];
 
@@ -43,9 +47,9 @@ public class OptionalTask1 {
             if (String.valueOf(shortNum).length() > String.valueOf(array[i]).length()) {
                 shortNum = array[i];
             } else if (String.valueOf(longNum).length() < String.valueOf(array[i]).length()) {
-                    longNum = array[i];
-                }
+                longNum = array[i];
             }
+        }
         System.out.println("the shortest number: " + shortNum + " " + "the length of this number: " +
                 String.valueOf(shortNum).length());
         System.out.println("the longest number: " + longNum + " " + "the length of this number: " +
@@ -56,10 +60,10 @@ public class OptionalTask1 {
     2.     Вывести числа в порядке возрастания (убывания) значений их длины.
     */
 
-    public static void bubbleSort(int[] array){
+    public static void bubbleSort(int[] array) {
         for (int i = 0; i < array.length - 1; i++) {
-            for (int j = array.length - 1; j > i;  j--) {
-                if(array[j - 1] > array[j]){
+            for (int j = array.length - 1; j > i; j--) {
+                if (array[j - 1] > array[j]) {
                     int temp = array[j - 1];
                     array[j - 1] = array[j];
                     array[j] = temp;
@@ -70,7 +74,8 @@ public class OptionalTask1 {
         System.out.println(Arrays.toString(array));
 
     }
-    public static void reverseSort(int[] array){
+
+    public static void reverseSort(int[] array) {
         for (int i = 0; i < array.length / 2; i++) {
             int temp = array[i];
             array[i] = array[array.length - i - 1];
@@ -78,6 +83,31 @@ public class OptionalTask1 {
         }
         System.out.println(Arrays.toString(array));
     }
+
+    /*
+    3.     Вывести на консоль те числа, длина которых меньше (больше) средней длины по всем числам, а также длину.
+     */
+
+    public static void numberAverageLength(int[] array) {
+        double sum = 0;
+        double average = 0;
+
+
+        for (int i = 0; i < array.length; i++) {
+            sum += String.valueOf(array[i]).length();
+            average = sum / array.length;
+        }
+        System.out.println("Average length: " + average);
+
+        for (int i = 0; i < array.length; i++) {
+            if (String.valueOf(array[i]).length() < average) {
+                System.out.println("has less length than average: " + array[i] + " " + "\n" + "length: " + String.valueOf(array[i]).length());
+            } else {
+                System.out.println("has length more than average: " + array[i] + " " + "\n" + "length: " + String.valueOf(array[i]).length());
+            }
+        }
+    }
+
 }
 
 
