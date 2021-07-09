@@ -13,7 +13,15 @@ import java.util.Scanner;
 public class OptionalTask2 {
     public static void main(String[] args) {
 
-        int temp;
+        int[][] matrix = createMatrix();
+
+        lineSort(matrix);
+        columnSort(matrix);
+
+    }
+
+
+    public static int[][] createMatrix() {
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Entry a matrix length: ");
@@ -26,7 +34,9 @@ public class OptionalTask2 {
                 a[i][j] = rand.nextInt(50) - 25;
             }
         }
+
         System.out.println();
+        System.out.println("Random matrix: ");
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 System.out.printf("%4d", a[i][j]);
@@ -34,46 +44,58 @@ public class OptionalTask2 {
             System.out.println();
             scan.close();
         }
+        return a;
+    }
 
-        for (int k = 0; k < n; k++) {   //line sort
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < (n - 1); j++) {
-                    if (a[k][j] > a[k][j + 1]){
-                        temp = a[k][j];
-                        a[k][j] = a[k][j + 1];
-                        a[k][j + 1] = temp;
+    public static void lineSort(int[][] matrix) {
+        int temp;
+
+        for (int k = 0; k < matrix.length; k++) {
+            for (int i = 0; i < matrix.length; i++) {
+                for (int j = 0; j < (matrix.length - 1); j++) {
+                    if (matrix[k][j] > matrix[k][j + 1]) {
+                        temp = matrix[k][j];
+                        matrix[k][j] = matrix[k][j + 1];
+                        matrix[k][j + 1] = temp;
                     }
                 }
             }
         }
 
         System.out.println();
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.printf("%4d", a[i][j]);
-            }
-            System.out.println();
-        }
-
-        for (int k = 0; k < n; k++) {   //column sort
-            for (int j = 0; j < n; j++) {
-                for (int i = 0; i < (n - 1); i++) {
-                    if (a[i][k] > a[i + 1][k]){
-                        temp = a[i][k];
-                        a[i][k] = a[i + 1][k];
-                        a[i + 1][k] = temp;
-                    }
-                }
-            }
-        }
-
-        System.out.println();
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                System.out.printf("%4d", a[i][j]);
+        System.out.println("sort each row from less to high number: ");
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                System.out.printf("%4d", matrix[i][j]);
             }
             System.out.println();
         }
     }
+
+    public static void columnSort(int[][] matrix) {
+        int temp;
+
+        for (int k = 0; k < matrix.length; k++) {
+            for (int j = 0; j < matrix.length; j++) {
+                for (int i = 0; i < (matrix.length - 1); i++) {
+                    if (matrix[i][k] > matrix[i + 1][k]) {
+                        temp = matrix[i][k];
+                        matrix[i][k] = matrix[i + 1][k];
+                        matrix[i + 1][k] = temp;
+                    }
+                }
+            }
+        }
+
+        System.out.println();
+        System.out.println("sort each column from less to high number: ");
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                System.out.printf("%4d", matrix[i][j]);
+            }
+            System.out.println();
+        }
+    }
+
 }
 
