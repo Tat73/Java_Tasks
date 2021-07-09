@@ -17,6 +17,7 @@ public class CreateBouquet {
         flowerFreshSort(bouquet);
 
     }
+
     public static List<Flower> createBouquet() {
 
         return Arrays.asList(
@@ -27,44 +28,43 @@ public class CreateBouquet {
                 new Flower(FlowerName.ROSE, 13, "cut yesterday", 2, 2.0),
                 new Flower(Accessory.RIBBON, 2, 0.3)
 
-         );
+        );
     }
 
-    public static void sumOfBouquet(List<Flower> bouquet){
+    public static void sumOfBouquet(List<Flower> bouquet) {
         double summary = 0;
         for (Flower flower : bouquet) {
-           summary += flower.getFlowerQuantity() * flower.getOnePiecePrice();
-           summary += flower.getAccessoryQuantity() * flower.getAccessoryOnePiecePrice();
+            summary += flower.getFlowerQuantity() * flower.getOnePiecePrice();
+            summary += flower.getAccessoryQuantity() * flower.getAccessoryOnePiecePrice();
         }
         System.out.println("Our bouquet is: " + bouquet + "\n");
         System.out.println("Total price of bouquet is: " + summary);
     }
 
-    public static void flowerStalkLengthSort(List<Flower> bouquet){
+    public static void flowerStalkLengthSort(List<Flower> bouquet) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Entry stalk length range for sorting: ");
         double fromThisLength = scanner.nextDouble();
         double toThisLength = scanner.nextDouble();
-        for (Flower flower : bouquet){
-            if(flower.getFlowerStalkLength() >= fromThisLength &&
-                    flower.getFlowerStalkLength() <= toThisLength){
+        for (Flower flower : bouquet) {
+            if (flower.getFlowerStalkLength() >= fromThisLength &&
+                    flower.getFlowerStalkLength() <= toThisLength) {
                 System.out.println(flower);
             }
 
         }
     }
 
-    public static void flowerFreshSort(List<Flower> bouquet){
+    public static void flowerFreshSort(List<Flower> bouquet) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Entry fresh lever for sorting: 'fresh' or 'cut yesterday'" );
+        System.out.println("Entry fresh lever for sorting: 'fresh' or 'cut yesterday'");
         String flowerFreshness = scanner.nextLine();
-        for (Flower flower : bouquet){
-            if(flowerFreshness.equals(flower.getFreshLevel())){
+        for (Flower flower : bouquet) {
+            if (flowerFreshness.equals(flower.getFreshLevel())) {
                 System.out.println(flower);
             }
         }
     }
-
 
 
 }

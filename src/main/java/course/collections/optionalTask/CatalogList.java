@@ -19,10 +19,11 @@ public class CatalogList {
         findFoldersAndFiles(directory);
 
     }
-    public static void findFoldersAndFiles(File file){
+
+    public static void findFoldersAndFiles(File file) {
         System.out.println(file.getAbsolutePath());
 
-        if(file.isDirectory()){
+        if (file.isDirectory()) {
             File[] files = file.listFiles();
             for (File findFile : files) {
                 findFoldersAndFiles(findFile);

@@ -1,6 +1,6 @@
 package course.collections.mainTask.flowersInTheBouquet.flowers;
 
-public class Flower{
+public class Flower {
     private FlowerName name;
     private double flowerStalkLength;
     private String freshLevel;

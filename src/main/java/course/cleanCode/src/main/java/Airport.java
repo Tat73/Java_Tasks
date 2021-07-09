@@ -1,7 +1,6 @@
 package course.cleanCode.src.main.java;
 
 
-
 import course.cleanCode.src.main.java.Planes.ExperimentalPlane;
 import course.cleanCode.src.main.java.Planes.MilitaryPlane;
 import course.cleanCode.src.main.java.Planes.PassengerPlane;
@@ -9,11 +8,12 @@ import course.cleanCode.src.main.java.Planes.Plane;
 import course.cleanCode.src.main.java.models.MilitaryType;
 
 import java.util.*;
+
 /**
- version: 1.1
- made by Vitali Shulha
- 4-Jan-2019
-*/
+ * version: 1.1
+ * made by Vitali Shulha
+ * 4-Jan-2019
+ */
 
 public class Airport {
     private final List<? extends Plane> planes;
@@ -26,8 +26,7 @@ public class Airport {
         List<? extends Plane> planes = this.planes;
         List<PassengerPlane> plane = new ArrayList<>();
         for (Plane p : planes) {
-            if (p instanceof PassengerPlane)
-            {
+            if (p instanceof PassengerPlane) {
                 plane.add((PassengerPlane) p);
             }
         }

@@ -92,15 +92,15 @@ public class MainTask {
         }
         System.out.println();
 
-       System.out.println("Entry year of birth: ");
-       int yearOfBirth = scanner.nextInt();
+        System.out.println("Entry year of birth: ");
+        int yearOfBirth = scanner.nextInt();
 
-       for (Student student : students) {
-           if (student.getYearOfBirthday() > yearOfBirth) {
-               System.out.println("Sort by year of birth: ");
-               System.out.println(student);
-           }
-       }
+        for (Student student : students) {
+            if (student.getYearOfBirthday() > yearOfBirth) {
+                System.out.println("Sort by year of birth: ");
+                System.out.println(student);
+            }
+        }
         System.out.println();
 
         System.out.println("Entry student`s group: И2019, А2017, Б2020, Ф2017, Б2018, Э2017, Ф2020, Б2020," +

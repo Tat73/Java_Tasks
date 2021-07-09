@@ -70,7 +70,7 @@ public class MainTask {
     4.     Ввести целые числа как аргументы командной строки, подсчитать их сумму
     (произведение) и вывести результат на консоль.
      */
-    public static void argumentsSummary(int ... args) {
+    public static void argumentsSummary(int... args) {
         int sum = 0;
 
         for (int i = 0; i < args.length; i++) {
@@ -79,7 +79,8 @@ public class MainTask {
         System.out.println(sum);
 
     }
-    public static void argumentsMultiply(int ... args) {
+
+    public static void argumentsMultiply(int... args) {
         int multiply = 1;
 
         for (int i = 0; i < args.length; i++) {
@@ -94,13 +95,13 @@ public class MainTask {
     данному числу. Осуществить проверку корректности ввода чисел.
      */
 
-    public static void monthNumber(){
+    public static void monthNumber() {
         System.out.println("Entry any number from 1 to 12: ");
         Scanner scan = new Scanner(System.in);
         int number = scan.nextInt();
 
-        if ((number >= 1) && (!(number > 12))){
-            switch (number){
+        if ((number >= 1) && (!(number > 12))) {
+            switch (number) {
                 case 1:
                     System.out.println("It`s January");
                     break;
@@ -138,7 +139,7 @@ public class MainTask {
                     System.out.println("It`s December");
                     break;
                 default:
-                break;
+                    break;
             }
         } else {
             System.out.println("Incorrect number");

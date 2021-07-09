@@ -1,7 +1,7 @@
 package course.classes.information;
 
 
-public class Student{
+public class Student {
     private int id;
     private String surname;
     private String name;

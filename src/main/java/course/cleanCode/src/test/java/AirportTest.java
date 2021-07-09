@@ -1,7 +1,6 @@
 package course.cleanCode.src.test.java;
 
 
-
 import course.cleanCode.src.main.java.Airport;
 import course.cleanCode.src.main.java.Planes.ExperimentalPlane;
 import course.cleanCode.src.main.java.Planes.MilitaryPlane;
@@ -86,20 +85,19 @@ public class AirportTest {
         for (MilitaryPlane militaryPlane : bomberMilitaryPlanes) {
             if ((militaryPlane.getType() == MilitaryType.BOMBER)) {
                 flag = true;
-            }
-            else {
+            } else {
                 Assert.fail("Test failed!");
             }
         }
     }
 
     @Test
-    public void testExperimentalPlanesHasClassificationLevelHigherThanUnclassified(){
+    public void testExperimentalPlanesHasClassificationLevelHigherThanUnclassified() {
         Airport airport = new Airport(planes);
         List<ExperimentalPlane> experimentalPlanes = airport.getExperimentalPlanes();
         boolean hasUnclassifiedPlanes = false;
-        for(ExperimentalPlane experimentalPlane : experimentalPlanes){
-            if(experimentalPlane.getClassificationLevel() == ClassificationLevel.UNCLASSIFIED){
+        for (ExperimentalPlane experimentalPlane : experimentalPlanes) {
+            if (experimentalPlane.getClassificationLevel() == ClassificationLevel.UNCLASSIFIED) {
                 hasUnclassifiedPlanes = true;
                 break;
             }

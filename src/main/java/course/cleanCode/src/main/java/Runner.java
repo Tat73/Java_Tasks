@@ -1,7 +1,6 @@
 package course.cleanCode.src.main.java;
 
 
-
 import course.cleanCode.src.main.java.Planes.MilitaryPlane;
 import course.cleanCode.src.main.java.Planes.PassengerPlane;
 import course.cleanCode.src.main.java.Planes.Plane;
