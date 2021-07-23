@@ -16,15 +16,27 @@ package course.classes;
 
 import course.classes.information.Student;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 
 public class MainTask {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        Student[] students = {
+        List<Student> studentList = createStudent();
 
+        filterByFaculty(studentList);
+        filterByFacultyAndCourse(studentList);
+        filterByYearOfBirth(studentList);
+        filterByGroup(studentList);
+
+
+    }
+
+    public static List<Student> createStudent() {
+
+        return Arrays.asList(
                 new Student(1, "Иванов", "Иван", "Иванович", 2000,
                         "Беларусь, Минск", "375291111111", "Исторический", 2, "И2019"),
                 new Student(2, "Васильев", "Василий", "Васильевич",
@@ -61,21 +73,28 @@ public class MainTask {
                         "Беларусь, Минск", "375295551111", "Исторический", 2, "И2019"),
                 new Student(13, "Василенко", "Василий", "Васильевич",
                         1983, "Беларусь, Гомель", "375297782211",
-                        "Архитектурный", 4, "А2017"),
-        };
+                        "Архитектурный", 4, "А2017")
+        );
+    }
 
+    public static void filterByFaculty(List<Student> studentList) {
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entry a faculty: Архитектурный, Исторический, Биологический, Экономический," +
                 "Математический");
 
         String faculty = scanner.nextLine();
-        for (Student student : students) {
+        for (Student student : studentList) {
             if (student.getFaculty().equals(faculty)) {
-                System.out.println("Sort by faculty: ");
+                System.out.println("Filter by faculty: ");
                 System.out.println(student);
             }
         }
         System.out.println();
+    }
+
+    public static void filterByFacultyAndCourse(List<Student> studentList) {
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entry faculty: Архитектурный, Исторический, Биологический, Экономический," +
                 "Математический");
@@ -84,36 +103,45 @@ public class MainTask {
 
         System.out.println("Entry course: from 1 to 4");
         int course = scanner.nextInt();
-        for (Student student : students) {
+        for (Student student : studentList) {
             if (student.getFaculty().equals(secondFaculty) && (student.getCourse() == course)) {
-                System.out.println("Sort by faculty and course: ");
+                System.out.println("Filter by faculty and course: ");
                 System.out.println(student);
             }
         }
         System.out.println();
+    }
+
+    public static void filterByYearOfBirth(List<Student> studentList) {
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entry year of birth: ");
         int yearOfBirth = scanner.nextInt();
 
-        for (Student student : students) {
+        for (Student student : studentList) {
             if (student.getYearOfBirthday() > yearOfBirth) {
-                System.out.println("Sort by year of birth: ");
+                System.out.println("Filter by year of birth: ");
                 System.out.println(student);
             }
         }
         System.out.println();
+    }
+
+    public static void filterByGroup(List<Student> studentList) {
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("Entry student`s group: И2019, А2017, Б2020, Ф2017, Б2018, Э2017, Ф2020, Б2020," +
                 "Б2018, Б2017, Б2016");
         String group = scanner.next();
 
-        for (Student student : students) {
+        for (Student student : studentList) {
             if (student.getGroup().equals(group)) {
-                System.out.println("Sort by group: ");
+                System.out.println("Filter by group: ");
                 System.out.println(student);
             }
         }
     }
+
 }
 
 
