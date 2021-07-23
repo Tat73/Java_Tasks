@@ -31,7 +31,6 @@ public class MainTask {
         filterByYearOfBirth(studentList);
         filterByGroup(studentList);
 
-
     }
 
     public static List<Student> createStudent() {

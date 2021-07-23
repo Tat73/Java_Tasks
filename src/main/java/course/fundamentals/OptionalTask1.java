@@ -92,7 +92,6 @@ public class OptionalTask1 {
         double sum = 0;
         double average = 0;
 
-
         for (int i = 0; i < array.length; i++) {
             sum += String.valueOf(array[i]).length();
             average = sum / array.length;
