@@ -2,51 +2,18 @@ package course.collections.mainTask.flowersInTheBouquet.flowers;
 
 public class Flower {
     private FlowerName name;
+    private FlowerFreshness flowerFreshLevel;
     private double flowerStalkLength;
-    private String freshLevel;
     private int flowerQuantity;
-    private double onePiecePrice;
-    private Accessory accessory;
-    private int accessoryQuantity;
-    private double accessoryOnePiecePrice;
+    private double flowerOnePiecePrice;
 
-    public Flower(FlowerName name, double flowerStalkLength, String freshLevel,
-                  int flowerQuantity, double onePiecePrice) {
+    public Flower(FlowerName name, FlowerFreshness flowerFreshLevel, double flowerStalkLength, int flowerQuantity,
+                  double flowerOnePiecePrice) {
         this.name = name;
+        this.flowerFreshLevel = flowerFreshLevel;
         this.flowerStalkLength = flowerStalkLength;
-        this.freshLevel = freshLevel;
         this.flowerQuantity = flowerQuantity;
-        this.onePiecePrice = onePiecePrice;
-    }
-
-    public Flower(Accessory accessory, int accessoryQuantity, double accessoryOnePiecePrice) {
-        this.accessory = accessory;
-        this.accessoryQuantity = accessoryQuantity;
-        this.accessoryOnePiecePrice = accessoryOnePiecePrice;
-    }
-
-    public int getAccessoryQuantity() {
-        return accessoryQuantity;
-    }
-
-    public void setAccessoryQuantity(int accessoryQuantity) {
-        this.accessoryQuantity = accessoryQuantity;
-    }
-
-    public double getAccessoryOnePiecePrice() {
-        return accessoryOnePiecePrice;
-    }
-
-    public void setAccessoryOnePiecePrice(double accessoryOnePiecePrice) {
-        this.accessoryOnePiecePrice = accessoryOnePiecePrice;
-    }
-
-    public Accessory getAccessory() {
-        return accessory;
-    }
-
-    public void setAccessory(Accessory accessory) {
-        this.accessory = accessory;
+        this.flowerOnePiecePrice = flowerOnePiecePrice;
     }
 
     public FlowerName getName() {
@@ -57,20 +24,20 @@ public class Flower {
         this.name = name;
     }
 
+    public FlowerFreshness getFlowerFreshLevel() {
+        return flowerFreshLevel;
+    }
+
+    public void setFlowerFreshLevel(FlowerFreshness flowerFreshLevel) {
+        this.flowerFreshLevel = flowerFreshLevel;
+    }
+
     public double getFlowerStalkLength() {
         return flowerStalkLength;
     }
 
     public void setFlowerStalkLength(double flowerStalkLength) {
         this.flowerStalkLength = flowerStalkLength;
-    }
-
-    public String getFreshLevel() {
-        return freshLevel;
-    }
-
-    public void setFreshLevel(String freshLevel) {
-        this.freshLevel = freshLevel;
     }
 
     public int getFlowerQuantity() {
@@ -81,25 +48,22 @@ public class Flower {
         this.flowerQuantity = flowerQuantity;
     }
 
-    public double getOnePiecePrice() {
-        return onePiecePrice;
+    public double getFlowerOnePiecePrice() {
+        return flowerOnePiecePrice;
     }
 
-    public void setOnePiecePrice(double onePiecePrice) {
-        this.onePiecePrice = onePiecePrice;
+    public void setFlowerOnePiecePrice(double flowerOnePiecePrice) {
+        this.flowerOnePiecePrice = flowerOnePiecePrice;
     }
 
     @Override
     public String toString() {
         return "Flower{" +
                 "name=" + name +
+                ", flowerFreshLevel=" + flowerFreshLevel +
                 ", flowerStalkLength=" + flowerStalkLength +
-                ", freshLevel='" + freshLevel + '\'' +
                 ", flowerQuantity=" + flowerQuantity +
-                ", onePiecePrice=" + onePiecePrice +
-                ", accessory=" + accessory +
-                ", accessoryQuantity=" + accessoryQuantity +
-                ", accessoryOnePiecePrice=" + accessoryOnePiecePrice +
+                ", flowerOnePiecePrice=" + flowerOnePiecePrice +
                 '}';
     }
 }
