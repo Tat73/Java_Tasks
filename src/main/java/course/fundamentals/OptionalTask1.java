@@ -70,9 +70,7 @@ public class OptionalTask1 {
                 }
             }
         }
-
         System.out.println(Arrays.toString(array));
-
     }
 
     public static void reverseSort(int[] array) {
@@ -99,10 +97,10 @@ public class OptionalTask1 {
         System.out.println("Average length: " + average);
 
         for (int i = 0; i < array.length; i++) {
-            if ((double) String.valueOf(array[i]).length() < average) {
-                System.out.println("has less length than average: " + array[i] + " " + "\n" + "length: " + (double) String.valueOf(array[i]).length());
-            } else {
-                System.out.println("has length more than average: " + array[i] + " " + "\n" + "length: " + (double) String.valueOf(array[i]).length());
+            if (((double) String.valueOf(array[i]).length() < average) &&
+                    ((double) String.valueOf(array[i]).length() != Math.floor(average))) {
+                System.out.println("has less length than average: " + array[i] + " " + "\n" + "length: " +
+                        (double) String.valueOf(array[i]).length());
             }
         }
     }
