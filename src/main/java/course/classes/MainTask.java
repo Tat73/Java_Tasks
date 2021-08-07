@@ -18,22 +18,21 @@ import course.classes.information.Student;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 
 public class MainTask {
     public static void main(String[] args) {
 
-        List<Student> studentList = createStudent();
+        List<Student> studentsList = createStudents();
 
-        filterByFaculty(studentList);
-        filterByFacultyAndCourse(studentList);
-        filterByYearOfBirth(studentList);
-        filterByGroup(studentList);
+        filterStudentsByFaculty(studentsList, "Исторический");
+        filterStudentsByFacultyAndCourse(studentsList, "Экономический", 4);
+        filterStudentsByYearOfBirth(studentsList, 2000);
+        filterStudentsByGroup(studentsList, "Э2017");
 
     }
 
-    public static List<Student> createStudent() {
+    public static List<Student> createStudents() {
 
         return Arrays.asList(
                 new Student(1, "Иванов", "Иван", "Иванович", 2000,
@@ -76,66 +75,40 @@ public class MainTask {
         );
     }
 
-    public static void filterByFaculty(List<Student> studentList) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Entry a faculty: Архитектурный, Исторический, Биологический, Экономический," +
-                "Математический");
-
-        String faculty = scanner.nextLine();
-        for (Student student : studentList) {
+    public static void filterStudentsByFaculty(List<Student> studentsList, String faculty) {
+        System.out.println("Filter students by faculty: ");
+        for (Student student : studentsList) {
             if (student.getFaculty().equals(faculty)) {
-                System.out.println("Filter by faculty: ");
                 System.out.println(student);
             }
         }
         System.out.println();
     }
 
-    public static void filterByFacultyAndCourse(List<Student> studentList) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Entry faculty: Архитектурный, Исторический, Биологический, Экономический," +
-                "Математический");
-
-        String secondFaculty = scanner.nextLine();
-
-        System.out.println("Entry course: from 1 to 4");
-        int course = scanner.nextInt();
-        for (Student student : studentList) {
-            if (student.getFaculty().equals(secondFaculty) && (student.getCourse() == course)) {
-                System.out.println("Filter by faculty and course: ");
+    public static void filterStudentsByFacultyAndCourse(List<Student> studentsList, String faculty, int course) {
+        System.out.println("Filter students by faculty and course: ");
+        for (Student student : studentsList) {
+            if (student.getFaculty().equals(faculty) && (student.getCourse() == course)) {
                 System.out.println(student);
             }
         }
         System.out.println();
     }
 
-    public static void filterByYearOfBirth(List<Student> studentList) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Entry year of birth: ");
-        int yearOfBirth = scanner.nextInt();
-
-        for (Student student : studentList) {
+    public static void filterStudentsByYearOfBirth(List<Student> studentsList, int yearOfBirth) {
+        System.out.println("Filter students by year of birth: ");
+        for (Student student : studentsList) {
             if (student.getYearOfBirthday() > yearOfBirth) {
-                System.out.println("Filter by year of birth: ");
                 System.out.println(student);
             }
         }
         System.out.println();
     }
 
-    public static void filterByGroup(List<Student> studentList) {
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Entry student`s group: И2019, А2017, Б2020, Ф2017, Б2018, Э2017, Ф2020, Б2020," +
-                "Б2018, Б2017, Б2016");
-        String group = scanner.next();
-
-        for (Student student : studentList) {
+    public static void filterStudentsByGroup(List<Student> studentsList, String group) {
+        System.out.println("Filter students by group: ");
+        for (Student student : studentsList) {
             if (student.getGroup().equals(group)) {
-                System.out.println("Filter by group: ");
                 System.out.println(student);
             }
         }
