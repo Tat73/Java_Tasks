@@ -27,7 +27,7 @@ public class MainTask {
 
         filterStudentsByFaculty(studentsList, "Исторический");
         filterStudentsByFacultyAndCourse(studentsList, "Экономический", 4);
-        filterStudentsByYearOfBirth(studentsList, 2000);
+        filterStudentsWereBornAfterCurrentYear(studentsList, 2000);
         filterStudentsByGroup(studentsList, "Э2017");
 
     }
@@ -95,7 +95,7 @@ public class MainTask {
         System.out.println();
     }
 
-    public static void filterStudentsByYearOfBirth(List<Student> studentsList, int yearOfBirth) {
+    public static void filterStudentsWereBornAfterCurrentYear(List<Student> studentsList, int yearOfBirth) {
         System.out.println("Filter students by year of birth: ");
         for (Student student : studentsList) {
             if (student.getYearOfBirthday() > yearOfBirth) {
