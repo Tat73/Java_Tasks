@@ -10,10 +10,10 @@ import course.errorAndExceptions.exceptions.*;
 import static course.errorAndExceptions.UniversityMethods.*;
 
 public class Runner {
-    public static void main(String[] args) throws NoSuchScoreException, NoSuchSubjectException {
-        University university = new University(createFacultiesWithGroups());
+    public static void main(String[] args) {
 
         try {
+            University university = new University(createFacultiesWithGroups());
             System.out.println("Average score for on student: " + getAverageScoreOfOneStudent(createStudents(),
                     "Cole"));
             System.out.println("Average score for current faculty, group and subject: " +
@@ -25,6 +25,5 @@ public class Runner {
             e.printStackTrace();
         }
     }
-
 
 }
