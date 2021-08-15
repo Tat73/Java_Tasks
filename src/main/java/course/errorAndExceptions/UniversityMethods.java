@@ -80,7 +80,7 @@ public class UniversityMethods {
                         .orElse(0);
             }
         }
-        return averageOfStudentScores;
+        return Math.floor(averageOfStudentScores);
     }
 
     public static double getAverageScoreOnCurrentSubjectGroupFaculty(University university,
@@ -110,7 +110,7 @@ public class UniversityMethods {
                 }
             }
         }
-        return averageScore;
+        return Math.floor(averageScore);
     }
 
     public static double getAverageScoreOnCurrentSubjectForWholeUniversity(University university, SubjectName subjectName) throws NoSuchSubjectException, NoSuchFacultyInUniversityException, NoSuchGroupsOnThatFaculty, NoStudentsInTheGroupException {
