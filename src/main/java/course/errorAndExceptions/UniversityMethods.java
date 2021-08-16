@@ -13,9 +13,6 @@ import java.util.List;
 
 public class UniversityMethods {
 
-    public UniversityMethods() throws NoSuchSubjectException, NoSuchScoreException {
-    }
-
     public static List<Student> createStudents() throws NoSuchScoreException, NoSuchSubjectException {
 
         Student student1 = new Student();
@@ -70,7 +67,7 @@ public class UniversityMethods {
         return facultyList;
     }
 
-    public static double getAverageScoreOfOneStudent(List<Student> studentList, String studentName) throws NoSuchSubjectException {
+    public static double getAverageScoreOfOneStudent(List<Student> studentList, String studentName) throws NoSuchSubjectException, NoSuchScoreException {
         double averageOfStudentScores = 0;
 
         for (Student student : studentList) {
@@ -85,7 +82,7 @@ public class UniversityMethods {
 
     public static double getAverageScoreOnCurrentSubjectGroupFaculty(University university,
                                                                      SubjectName subjectName, GroupName groupName,
-                                                                     FacultyName facultyName) throws NoSuchSubjectException, NoSuchFacultyInUniversityException, NoSuchGroupsOnThatFaculty, NoStudentsInTheGroupException {
+                                                                     FacultyName facultyName) throws NoSuchSubjectException, NoSuchFacultyInUniversityException, NoSuchGroupsOnThatFaculty, NoStudentsInTheGroupException, NoSuchScoreException {
         double sumOfScore = 0;
         long scoreQuantity = 0;
         double averageScore = 0;
@@ -104,7 +101,7 @@ public class UniversityMethods {
                                     .mapToDouble(SubjectAndScore::getSubjectScore)
                                     .count();
                         }
-                        averageScore = (double) (sumOfScore / scoreQuantity);
+                        averageScore = sumOfScore / scoreQuantity;
                     }
 
                 }
@@ -113,7 +110,7 @@ public class UniversityMethods {
         return Math.floor(averageScore);
     }
 
-    public static double getAverageScoreOnCurrentSubjectForWholeUniversity(University university, SubjectName subjectName) throws NoSuchSubjectException, NoSuchFacultyInUniversityException, NoSuchGroupsOnThatFaculty, NoStudentsInTheGroupException {
+    public static double getAverageScoreOnCurrentSubjectForWholeUniversity(University university, SubjectName subjectName) throws NoSuchSubjectException, NoSuchFacultyInUniversityException, NoSuchGroupsOnThatFaculty, NoStudentsInTheGroupException, NoSuchScoreException {
         double sumOfScore = 0;
         long scoreQuantity = 0;
         double averageScore = 0;
@@ -129,7 +126,7 @@ public class UniversityMethods {
                             .mapToDouble(SubjectAndScore::getSubjectScore)
                             .count();
                 }
-                averageScore = (double) (sumOfScore / scoreQuantity);
+                averageScore = sumOfScore / scoreQuantity;
             }
 
         }

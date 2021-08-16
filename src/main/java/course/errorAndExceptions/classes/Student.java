@@ -23,9 +23,14 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public List<SubjectAndScore> getSubjectAndScoreList() throws NoSuchSubjectException {
+    public List<SubjectAndScore> getSubjectAndScoreList() throws NoSuchSubjectException, NoSuchScoreException {
         if (subjectAndScoreList == null || subjectAndScoreList.isEmpty()) {
             throw new NoSuchSubjectException("check if student has subjects");
+        }
+        for (SubjectAndScore subjectAndScore : subjectAndScoreList) {
+            if (subjectAndScore.getSubjectScore() > 10 || subjectAndScore.getSubjectScore() < 0) {
+                throw new NoSuchScoreException("check student`s score");
+            }
         }
         return subjectAndScoreList;
     }
@@ -34,7 +39,7 @@ public class Student {
         this.subjectAndScoreList = subjectAndScoreList;
     }
 
-    public void addSubjectAndScore(SubjectName subjectName, int subjectScore) throws NoSuchSubjectException, NoSuchScoreException {
+    public void addSubjectAndScore(SubjectName subjectName, int subjectScore) {
         this.subjectAndScoreList.add(new SubjectAndScore(subjectName, subjectScore));
     }
 

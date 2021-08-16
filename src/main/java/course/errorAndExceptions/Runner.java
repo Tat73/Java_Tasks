@@ -11,7 +11,6 @@ import static course.errorAndExceptions.UniversityMethods.*;
 
 public class Runner {
     public static void main(String[] args) {
-
         try {
             University university = new University(createFacultiesWithGroups());
             System.out.println("Average score for on student: " + getAverageScoreOfOneStudent(createStudents(),
@@ -19,7 +18,7 @@ public class Runner {
             System.out.println("Average score for current faculty, group and subject: " +
                     getAverageScoreOnCurrentSubjectGroupFaculty(university, SubjectName.HISTORY, GroupName.FIN, FacultyName.FINANCIAL));
             System.out.println("Average score for current subject at whole university: " +
-                    getAverageScoreOnCurrentSubjectForWholeUniversity(university, SubjectName.ECONOMY));
+                    getAverageScoreOnCurrentSubjectForWholeUniversity(university, SubjectName.ENGLISH));
         } catch (NoSuchScoreException | NoSuchSubjectException | NoStudentsInTheGroupException |
                 NoSuchGroupsOnThatFaculty | NoSuchFacultyInUniversityException e) {
             e.printStackTrace();

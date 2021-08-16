@@ -1,18 +1,14 @@
 package course.errorAndExceptions.classes;
 
 import course.errorAndExceptions.enums.SubjectName;
-import course.errorAndExceptions.exceptions.NoSuchScoreException;
 
 
 public class SubjectAndScore {
     private SubjectName subjectName;
     private int subjectScore;
 
-    public SubjectAndScore(SubjectName subjectName, int subjectScore) throws NoSuchScoreException {
+    public SubjectAndScore(SubjectName subjectName, int subjectScore) {
         this.subjectName = subjectName;
-        if (subjectScore > 10 || subjectScore < 0) {
-            throw new NoSuchScoreException("check student`s score");
-        }
         this.subjectScore = subjectScore;
     }
 
