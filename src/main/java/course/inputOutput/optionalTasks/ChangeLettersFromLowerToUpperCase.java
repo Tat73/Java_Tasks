@@ -31,7 +31,7 @@ public class ChangeLettersFromLowerToUpperCase {
                     if (lineArr[i].length() > 2) {
                         stringBuilder.append(lineArr[i].toUpperCase()).append(" ");
                     } else {
-                        stringBuilder.append(lineArr[i]);
+                        stringBuilder.append(lineArr[i]).append(" ");
                     }
                 }
             }
