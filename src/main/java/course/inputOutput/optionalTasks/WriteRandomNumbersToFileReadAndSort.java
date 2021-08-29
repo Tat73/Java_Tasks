@@ -23,7 +23,7 @@ public class WriteRandomNumbersToFileReadAndSort {
     public static List<Integer> randomNumbers() {
         List<Integer> randomArray = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            int number = (int) (Math.random() * 10) + 1;
+            int number = (int) (Math.random() * 10);
             randomArray.add(number);
         }
         return randomArray;
@@ -32,7 +32,7 @@ public class WriteRandomNumbersToFileReadAndSort {
     public static void fileOutput() {
         File dir = new File("D:\\projects\\Java_Tasks\\data1");
         dir.mkdir();
-        File file = new File("data\\randomNumbers.txt");
+        File file = new File("data1\\randomNumbers.txt");
         List<Integer> array = randomNumbers();
         try (PrintStream stream = new PrintStream(new FileOutputStream(file))) {
             for (Integer arr : array) {
@@ -41,7 +41,7 @@ public class WriteRandomNumbersToFileReadAndSort {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        try (FileReader reader = new FileReader(file); FileWriter writer = new FileWriter("data\\sortedRandomNumbers.txt")) {
+        try (FileReader reader = new FileReader(file); FileWriter writer = new FileWriter("data1\\sortedRandomNumbers.txt")) {
             char[] value1 = new char[10];
             reader.read(value1);
             bubbleSort(value1);
