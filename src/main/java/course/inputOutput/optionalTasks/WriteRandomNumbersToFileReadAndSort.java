@@ -15,10 +15,6 @@ import java.util.List;
  */
 
 public class WriteRandomNumbersToFileReadAndSort {
-    public static void main(String[] args) {
-        fileOutput();
-
-    }
 
     public static List<Integer> randomNumbers() {
         List<Integer> randomArray = new ArrayList<>();
@@ -51,8 +47,6 @@ public class WriteRandomNumbersToFileReadAndSort {
         } catch (IOException exception) {
             exception.printStackTrace();
         }
-
-
     }
 
     public static void bubbleSort(char[] array) {

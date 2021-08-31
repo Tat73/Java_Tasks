@@ -11,7 +11,7 @@ import java.io.IOException;
  * 3.     Прочитать текст Java-программы и записать в другой файл в обратном порядке символы каждой строки.
  */
 public class ReverseOfEverySymbolOfLine {
-    public static void main(String[] args) {
+        public static void stringReverses(){
         File dir = new File("D:\\projects\\Java_Tasks\\data3");
         dir.mkdir();
         try (FileReader reader = new FileReader("filesForReading\\ChangePublicToPrivate.txt");
