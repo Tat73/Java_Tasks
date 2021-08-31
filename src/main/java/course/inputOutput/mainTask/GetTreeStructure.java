@@ -1,6 +1,6 @@
-package course.inputOutput;
+package course.inputOutput.mainTask;
 
-import course.inputOutput.utils.FileUtils;
+import course.inputOutput.mainTask.utils.FileUtils;
 
 import java.nio.file.Path;
 

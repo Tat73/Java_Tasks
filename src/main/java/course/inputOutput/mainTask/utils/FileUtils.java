@@ -1,4 +1,4 @@
-package course.inputOutput.utils;
+package course.inputOutput.mainTask.utils;
 
 import java.io.BufferedReader;
 import java.io.File;
