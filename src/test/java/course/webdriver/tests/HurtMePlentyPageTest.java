@@ -32,7 +32,7 @@ public class HurtMePlentyPageTest {
                 .choseMachineClass("Regular")
                 .choseSetOfInstanceType("N1")
                 .choseInstanceType("(vCPUs: 8, RAM: 30GB)")
-        .choseGRUsNumber("1")
+                .choseGRUsNumber("1")
                 .choseGRUsType("NVIDIA Tesla V100")
                 .inputLocalSSD("2x375 GB")
                 .choseDatacenterLocation("Frankfurt")
@@ -83,8 +83,8 @@ public class HurtMePlentyPageTest {
 
     @AfterClass(alwaysRun = true)
     public void closeBrowser() {
-//        driver.quit();
-//        driver = null;
+        driver.quit();
+        driver = null;
     }
 
 
