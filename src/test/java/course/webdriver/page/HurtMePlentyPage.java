@@ -1,20 +1,15 @@
 package course.webdriver.page;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-import java.util.function.Function;
 
 
 public class HurtMePlentyPage extends InitNewDriver {
@@ -155,17 +150,11 @@ public class HurtMePlentyPage extends InitNewDriver {
         WebElement choseSoftwareOptions = driver.findElement(By.xpath("//div[@class='md-text' and contains(text(), 'Paid: Ubuntu Pro')]"));
         choseSoftwareOptions.click();
 
-        new FluentWait<>(driver).withTimeout(Duration.ofSeconds(30)).pollingEvery(Duration.ofSeconds(5))
-                .ignoring(StaleElementReferenceException.class)
-                .until((Function) arg0 -> {
-                    WebElement e = driver.findElement(By.xpath("//div[@class='md-text']"));
-                    Actions action = new Actions(driver);
-                    action.moveToElement(e).doubleClick().perform();
-                    return true;
-                });
+        wait.until(ExpectedConditions.elementToBeClickable(clickOnSoftwareOptions)).click();
 
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(String.format(SOFTWARE_XPATH, software)))));
         WebElement choseSoftwareOptions1 = driver.findElement(By.xpath(String.format(SOFTWARE_XPATH, software)));
+        ((JavascriptExecutor) driver).executeScript("scroll(267, 472)");
         choseSoftwareOptions1.click();
 
         System.out.println(choseSoftwareOptions1.getText());
