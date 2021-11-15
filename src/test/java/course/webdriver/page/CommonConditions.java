@@ -27,7 +27,7 @@ public class CommonConditions {
 
     @AfterMethod(alwaysRun = true)
     public void closeBrowser() {
-//        driver.quit();
-//        driver = null;
+        driver.quit();
+        driver = null;
     }
 }
