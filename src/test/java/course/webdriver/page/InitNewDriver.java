@@ -17,7 +17,7 @@ public abstract class InitNewDriver {
     }
     public void waitForPageLoad() {
 
-        Wait<WebDriver> wait = new WebDriverWait(driver, 30);
+        Wait<WebDriver> wait = new WebDriverWait(driver, 40);
         wait.until(driver -> {
             System.out.println("Current Window State       : "
                     + ((JavascriptExecutor) driver).executeScript("return document.readyState"));
