@@ -14,8 +14,9 @@ public class FormForCalculator {
     private String location;
     private String commitedUsage;
 
-    public FormForCalculator(String numberOfInstances, String operationSystem, String machineClass,
-                             String instanceType, String instanceSeries, String numberOfGPUs, String GPUType, String localSSD,
+    public FormForCalculator(String numberOfInstances, String operationSystem,
+                             String machineClass, String instanceType, String instanceSeries,
+                             String numberOfGPUs, String GPUType, String localSSD,
                              String location, String commitedUsage) {
         this.numberOfInstances = numberOfInstances;
         this.operationSystem = operationSystem;
@@ -144,7 +145,7 @@ public class FormForCalculator {
 
     @Override
     public int hashCode() {
-        return Objects.hash(numberOfInstances, operationSystem, machineClass, instanceType, instanceSeries,
-                numberOfGPUs, GPUType, localSSD, location, commitedUsage);
+        return Objects.hash(numberOfInstances, operationSystem, machineClass, instanceType,
+                instanceSeries, numberOfGPUs, GPUType, localSSD, location, commitedUsage);
     }
 }

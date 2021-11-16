@@ -1,5 +1,7 @@
 package course.framework.page;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -14,6 +16,7 @@ public class Email extends AbstractPage {
 
     private static final String MAILPAGE_URL = "https://yopmail.com/";
     WebDriverWait wait = new WebDriverWait(driver, 30);
+    private Logger log = LogManager.getRootLogger();
 
     @FindBy(xpath = "//*[@id='login']")
     private WebElement checkEmail;
@@ -44,7 +47,8 @@ public class Email extends AbstractPage {
         new WebDriverWait(driver, 10).until(ExpectedConditions
                 .frameToBeAvailableAndSwitchToIt(changeBoxMailFrame));
 
-        System.out.println("frame 'ifinbox' is switched ");
+
+        log.info("frame 'ifinbox' is switched ");
 
         List<WebElement> allMails = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
                 (By.xpath("//*[@class='m']"))));
@@ -59,7 +63,7 @@ public class Email extends AbstractPage {
         driver.switchTo().defaultContent();
         driver.switchTo().frame("ifmail");
 
-        System.out.println("frame 'ifmail' is switched ");
+        log.info("frame 'ifmail' is switched ");
 
         return this;
     }
