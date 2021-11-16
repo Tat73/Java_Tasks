@@ -21,8 +21,8 @@ public class HardCorePage extends InitNewDriver {
     private static final String LOCATION_XPATH = "//*[@id='select_container_108']//*[@class='md-text ng-binding' and contains(text(),'%s')]";
     private static final String SSD_XPATH = "//div[@id='select_container_413']//div[@class='md-text ng-binding' and contains(text(),'%s')]";
     private static final String COMMITED_USAGE_XPATH = "//*[@id='select_container_115']//div[@class='md-text' and contains(text(),'%s')]";
-    private static final String GRU_NUMBER_XPATH = "//div[@id='select_container_452']//div[@class='md-text ng-binding' and contains(text(),'%s')]";
-    private static final String GRU_TYPE_XPATH = "//*[@class='ng-scope md-ink-ripple']//div[@class='md-text ng-binding' and contains(text(),'%s')]";
+    private static final String GRU_NUMBER_XPATH = "//*[@id='select_container_453']//div[@class='md-text ng-binding' and contains(text(),'%s')]";
+    private static final String GRU_TYPE_XPATH = "//*[@class='md-select-menu-container md-active md-clickable']//div[@class='md-text ng-binding' and contains(text(),'%s')]";
     private static final String INSTANCE_TYPE_XPATH = "//div[@class='md-text ng-binding' and contains(text(),'%s')]";
     private static final String MACHINE_CLASS_XPATH = "//*[@id='select_container_92']//div[@class='md-text' and contains(text(),'%s')]";
     private static final String SOFTWARE_XPATH = "//div[@class='md-text' and contains(text(),'%s')]";
@@ -52,17 +52,17 @@ public class HardCorePage extends InitNewDriver {
     @FindBy(xpath = "//*[@id='select_101']")
     private WebElement clickOnMachineType;
 
-    @FindBy(xpath = "//div[@class='md-label' and contains(text(),'Add Sustained Use Discounts.')]")
+    @FindBy(xpath = "//div[@class='md-label' and contains(text(),'Add GPUs.')]")
     private WebElement clickOnGPUs;
 
-    @FindBy(xpath = "//div[@class='md-label' and contains(text(),'Add GPUs.')]")
+    @FindBy(xpath = "//div[@class='md-label' and contains(text(),'Add Sustained Use Discounts.')]")
     private WebElement clickOnSUD;
+
+    @FindBy(xpath = "//*[@aria-label='GPU type']")
+    private WebElement clickToChoseGPUsType;
 
     @FindBy(xpath = "//*[@id='select_value_label_449']")
     private WebElement entryGRUsNumber;
-
-    @FindBy(xpath = "//*[@class='md-input-has-placeholder md-input-has-value flex']")
-    private WebElement clickToChoseGPUsType;
 
     @FindBy(xpath = "//*[@id='select_value_label_411']")
     private WebElement clickOnLocalSSD;
@@ -200,16 +200,9 @@ public class HardCorePage extends InitNewDriver {
         return this;
     }
 
-    public HardCorePage choseGRUsNumber(String GPUsNumber) {
+    public HardCorePage choseGPUButton() {
         wait.until(ExpectedConditions.elementToBeClickable(clickOnSUD)).click();
         wait.until(ExpectedConditions.elementToBeClickable(clickOnGPUs)).click();
-        wait.until(ExpectedConditions.elementToBeClickable(entryGRUsNumber)).click();
-
-        wait.ignoring(NoSuchElementException.class).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(String.format(GRU_NUMBER_XPATH, GPUsNumber)))));
-        WebElement clickOnGRUsNumber = driver.findElement(By.xpath(String.format(GRU_NUMBER_XPATH, GPUsNumber)));
-        clickOnGRUsNumber.click();
-
-        System.out.println(clickOnGRUsNumber.getText());
 
         return this;
     }
@@ -217,12 +210,24 @@ public class HardCorePage extends InitNewDriver {
     public HardCorePage choseGRUsType(String inputGRUsType) {
 
         wait.until(ExpectedConditions.elementToBeClickable(clickToChoseGPUsType)).click();
-        wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(String.format(GRU_TYPE_XPATH, inputGRUsType)))));
+        wait.ignoring(NoSuchElementException.class).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(String.format(GRU_TYPE_XPATH, inputGRUsType)))));
         WebElement GPUsType = driver.findElement(
                 By.xpath(String.format(GRU_TYPE_XPATH, inputGRUsType)));
         GPUsType.click();
 
         System.out.println(GPUsType.getText());
+
+        return this;
+    }
+
+    public HardCorePage choseGRUsNumber(String GPUsNumber) {
+        wait.until(ExpectedConditions.elementToBeClickable(entryGRUsNumber)).click();
+
+        wait.ignoring(NoSuchElementException.class).until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(String.format(GRU_NUMBER_XPATH, GPUsNumber)))));
+        WebElement clickOnGRUsNumber = driver.findElement(By.xpath(String.format(GRU_NUMBER_XPATH, GPUsNumber)));
+        clickOnGRUsNumber.click();
+
+        System.out.println(clickOnGRUsNumber.getText());
 
         return this;
     }

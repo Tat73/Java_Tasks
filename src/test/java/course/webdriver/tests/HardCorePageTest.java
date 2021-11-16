@@ -1,5 +1,6 @@
 package course.webdriver.tests;
 
+
 import course.webdriver.page.CommonConditions;
 import course.webdriver.page.Email;
 import course.webdriver.page.HardCorePage;
@@ -27,8 +28,9 @@ public class HardCorePageTest extends CommonConditions {
                 .choseMachineClass("Regular")
                 .choseSeriesOfInstanceType("N1")
                 .choseInstanceType("(vCPUs: 8, RAM: 30GB)")
-                .choseGRUsNumber("1")
+                .choseGPUButton()
                 .choseGRUsType("NVIDIA Tesla V100")
+                .choseGRUsNumber("1")
                 .inputLocalSSD("2x375 GB")
                 .choseDatacenterLocation("Frankfurt (europe-west3)")
                 .choseCommitedUsage("1 Year")
