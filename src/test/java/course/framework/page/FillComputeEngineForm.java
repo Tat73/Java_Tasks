@@ -107,6 +107,7 @@ public class FillComputeEngineForm extends AbstractPage {
     public FillComputeEngineForm openCalculatorPage() {
         driver.get(HOMEPAGE_URL);
         waitForPageLoad();
+
         return this;
     }
 
@@ -172,6 +173,7 @@ public class FillComputeEngineForm extends AbstractPage {
         choseClass.click();
 
         System.out.println(choseClass.getText());
+
         return this;
     }
 
@@ -183,6 +185,7 @@ public class FillComputeEngineForm extends AbstractPage {
         choseSet.click();
 
         System.out.println(choseSet.getText());
+
         return this;
     }
 
@@ -293,6 +296,7 @@ public class FillComputeEngineForm extends AbstractPage {
 
     public FillComputeEngineForm copyEmail() {
         wait.until(ExpectedConditions.elementToBeClickable(copyNewEmail)).click();
+
         return this;
     }
 
@@ -306,6 +310,7 @@ public class FillComputeEngineForm extends AbstractPage {
 
     public String getEstimatedComponentCostValue() {
         wait.until(ExpectedConditions.visibilityOf(totalCostValue));
+
         return totalCostValue.getText();
     }
 }
