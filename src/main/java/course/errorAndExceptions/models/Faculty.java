@@ -1,7 +1,6 @@
-package course.errorAndExceptions.classes;
+package course.errorAndExceptions.models;
 
-import course.errorAndExceptions.enums.FacultyName;
-import course.errorAndExceptions.exceptions.NoSuchGroupsOnThatFaculty;
+import course.errorAndExceptions.exceptions.NoSuchGroupsOnThatFacultyException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +30,10 @@ public class Faculty {
         this.facultyName = facultyName;
     }
 
-    public List<Group> getGroupList() throws NoSuchGroupsOnThatFaculty {
+    public List<Group> getGroupList() throws NoSuchGroupsOnThatFacultyException {
         if (groupList == null || groupList.isEmpty()) {
-            throw new NoSuchGroupsOnThatFaculty("check if faculty has any group");
+            System.out.println("groupList is empty");
+            throw new NoSuchGroupsOnThatFacultyException("check if faculty has any group");
         }
         return groupList;
     }
