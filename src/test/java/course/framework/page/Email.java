@@ -59,7 +59,6 @@ public class Email extends AbstractPage {
 
         driver.switchTo().defaultContent();
         driver.switchTo().frame("ifmail");
-
         System.out.println("frame 'ifmail' is switched ");
 
         return this;
