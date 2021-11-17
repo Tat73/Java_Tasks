@@ -16,7 +16,6 @@ public class FillComputeEngineFormTest extends CommonConditions {
 
     @Test
     public void openNewBrowser() {
-
         FormForCalculator input = FormForCalculatorCreator.withCredentialsFromProperty();
 
         FillComputeEngineForm fillComputeEngineForm = new FillComputeEngineForm(driver);

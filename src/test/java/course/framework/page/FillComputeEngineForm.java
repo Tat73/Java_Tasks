@@ -248,7 +248,6 @@ public class FillComputeEngineForm extends AbstractPage {
         wait.until(ExpectedConditions.elementToBeClickable(clickOnDatacenterLocation)).click();
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(String.format(LOCATION_XPATH, location)))));
         WebElement choseLocation = driver.findElement(By.xpath(String.format(LOCATION_XPATH, location)));
-
         choseLocation.click();
 
         System.out.println(choseLocation.getText());

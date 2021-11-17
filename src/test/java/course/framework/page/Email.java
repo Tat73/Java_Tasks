@@ -44,6 +44,7 @@ public class Email extends AbstractPage {
         new WebDriverWait(driver, 10).until(ExpectedConditions
                 .frameToBeAvailableAndSwitchToIt(changeBoxMailFrame));
 
+
         System.out.println("frame 'ifinbox' is switched ");
 
         List<WebElement> allMails = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(
