@@ -300,9 +300,9 @@ public class FillComputeEngineForm extends AbstractPage {
         return this;
     }
 
-    public FillComputeEngineForm inputEmailToCalculator() {
+    public FillComputeEngineForm inputEmailToCalculator(String email) {
         new WebDriverWait(driver, 60).pollingEvery(Duration.ofSeconds(5)).until(ExpectedConditions.visibilityOf(inputEmail));
-        inputEmail.sendKeys(Keys.CONTROL + "v");
+        inputEmail.sendKeys(email, Keys.ENTER);
         wait.until(ExpectedConditions.elementToBeClickable(clickToSendInformationOnEmail)).click();
 
         return this;

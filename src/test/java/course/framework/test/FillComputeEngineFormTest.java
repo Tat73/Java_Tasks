@@ -58,7 +58,7 @@ public class FillComputeEngineFormTest extends CommonConditions {
 
         System.out.println("frame 'myframe' is switched ");
         fillComputeEngineForm
-                .inputEmailToCalculator();
+                .inputEmailToCalculator(newEmail);
 
         Email email = new Email(driver);
         email
