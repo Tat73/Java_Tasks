@@ -65,7 +65,6 @@ public class FillComputeEngineFormTest extends CommonConditions {
                 .openEmailPage()
                 .openEmailBox(newEmail);
 
-
         Assert.assertEquals("Total Estimated Cost: " + email.getTotalCost() + " per 1 month",
                 sumFromCalculator);
 

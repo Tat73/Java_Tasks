@@ -260,7 +260,6 @@ public class FillComputeEngineForm extends AbstractPage {
         wait.until(ExpectedConditions.elementToBeClickable(clickOnCommitedUsage)).click();
         wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath(String.format(COMMITED_USAGE_XPATH, usage)))));
         WebElement choseUsage = driver.findElement(By.xpath(String.format(COMMITED_USAGE_XPATH, usage)));
-
         choseUsage.click();
 
         System.out.println(choseUsage.getText());
