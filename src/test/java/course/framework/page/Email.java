@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.List;
 
 public class Email extends AbstractPage {
-
     private static final String MAILPAGE_URL = "https://yopmail.com/";
     WebDriverWait wait = new WebDriverWait(driver, 30);
 

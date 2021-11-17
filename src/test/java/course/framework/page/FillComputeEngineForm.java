@@ -15,6 +15,7 @@ public class FillComputeEngineForm extends AbstractPage {
     private static final String HOMEPAGE_URL = "https://cloud.google.com/";
     private WebDriverWait wait = new WebDriverWait(driver, 40);
 
+
     private static final String LOCATION_XPATH = "//*[@id='select_container_108']//*[@class='md-text ng-binding' and contains(text(),'%s')]";
     private static final String SSD_XPATH = "//div[@id='select_container_413']//div[@class='md-text ng-binding' and contains(text(),'%s')]";
     private static final String COMMITED_USAGE_XPATH = "//*[@id='select_container_115']//div[@class='md-text' and contains(text(),'%s')]";

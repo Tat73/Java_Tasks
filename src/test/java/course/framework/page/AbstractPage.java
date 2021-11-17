@@ -15,7 +15,6 @@ public abstract class AbstractPage {
     }
 
     public void waitForPageLoad() {
-
         Wait<WebDriver> wait = new WebDriverWait(driver, 30);
         wait.until(driver -> {
             System.out.println("Current Window State       : "

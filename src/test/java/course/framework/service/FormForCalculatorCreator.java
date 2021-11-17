@@ -15,7 +15,6 @@ public class FormForCalculatorCreator {
     public static final String TESTDATA_COMMITED_USAGE = "testdata.formForCalculator.commitedUsage";
 
     public static FormForCalculator withCredentialsFromProperty() {
-
         return new FormForCalculator(
                 TestDataReader.getTestData(TESTDATA_NUMBER_OF_INSTANCES),
                 TestDataReader.getTestData(TESTDATA_OPERATION_SYSTEM),

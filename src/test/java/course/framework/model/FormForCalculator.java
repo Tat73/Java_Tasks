@@ -147,6 +147,5 @@ public class FormForCalculator {
     public int hashCode() {
         return Objects.hash(numberOfInstances, operationSystem, machineClass, instanceType,
                 instanceSeries, numberOfGPUs, GPUType, localSSD, location, commitedUsage);
-
     }
 }
