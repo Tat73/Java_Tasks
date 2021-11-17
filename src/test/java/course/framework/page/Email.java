@@ -15,6 +15,7 @@ public class Email extends AbstractPage {
     private static final String MAILPAGE_URL = "https://yopmail.com/";
     WebDriverWait wait = new WebDriverWait(driver, 30);
 
+
     @FindBy(xpath = "//*[@id='login']")
     private WebElement checkEmail;
 
