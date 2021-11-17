@@ -102,6 +102,7 @@ public class HurtMePlentyPage extends InitNewDriver {
     public HurtMePlentyPage openPage() {
         driver.get(HOMEPAGE_URL);
         waitForPageLoad();
+
         return this;
     }
 
