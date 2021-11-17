@@ -40,7 +40,7 @@ public class Email extends AbstractPage {
         wait.until(ExpectedConditions.visibilityOf(checkEmail));
         checkEmail.sendKeys(email, Keys.ENTER);
 
-        new WebDriverWait(driver, 10).until(ExpectedConditions
+        new WebDriverWait(driver, 50).until(ExpectedConditions
                 .frameToBeAvailableAndSwitchToIt(changeBoxMailFrame));
 
         System.out.println("frame 'ifinbox' is switched ");
