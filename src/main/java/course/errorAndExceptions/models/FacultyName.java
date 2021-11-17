@@ -1,4 +1,4 @@
-package course.errorAndExceptions.enums;
+package course.errorAndExceptions.models;
 
 public enum FacultyName {
     FINANCIAL, HISTORICAL
