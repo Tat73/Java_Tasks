@@ -1,4 +1,4 @@
-package course.errorAndExceptions.classes;
+package course.errorAndExceptions.models;
 
 import course.errorAndExceptions.exceptions.NoSuchFacultyInUniversityException;
 

@@ -1,10 +1,16 @@
 package course.errorAndExceptions;
 
-import course.errorAndExceptions.classes.*;
-import course.errorAndExceptions.enums.FacultyName;
-import course.errorAndExceptions.enums.GroupName;
-import course.errorAndExceptions.enums.SubjectName;
-import course.errorAndExceptions.exceptions.*;
+import course.errorAndExceptions.exceptions.NoSuchScoreException;
+import course.errorAndExceptions.exceptions.NoSuchSubjectException;
+import course.errorAndExceptions.models.Faculty;
+import course.errorAndExceptions.models.FacultyName;
+import course.errorAndExceptions.models.FacultyName;
+import course.errorAndExceptions.models.Group;
+import course.errorAndExceptions.models.GroupName;
+import course.errorAndExceptions.models.GroupName;
+import course.errorAndExceptions.models.Student;
+import course.errorAndExceptions.models.SubjectName;
+import course.errorAndExceptions.models.SubjectName;
 
 
 import java.util.Arrays;
@@ -17,7 +23,7 @@ public class UniversityMethods {
 
         Student student1 = new Student();
         student1.setStudentName("Cole");
-        student1.addSubjectAndScore(SubjectName.ECONOMY, 5);
+        student1.addSubjectAndScore(SubjectName.ECONOMY, -5);
         student1.addSubjectAndScore(SubjectName.HISTORY, 9);
 
 
@@ -67,71 +73,6 @@ public class UniversityMethods {
         return facultyList;
     }
 
-    public static double getAverageScoreOfOneStudent(List<Student> studentList, String studentName) throws NoSuchSubjectException, NoSuchScoreException {
-        double averageOfStudentScores = 0;
-
-        for (Student student : studentList) {
-            if (student.getStudentName().equalsIgnoreCase(studentName)) {
-                averageOfStudentScores = student.getSubjectAndScoreList().stream().mapToDouble(SubjectAndScore::getSubjectScore)
-                        .average()
-                        .orElse(0);
-            }
-        }
-        return Math.floor(averageOfStudentScores);
-    }
-
-    public static double getAverageScoreOnCurrentSubjectGroupFaculty(University university,
-                                                                     SubjectName subjectName, GroupName groupName,
-                                                                     FacultyName facultyName) throws NoSuchSubjectException, NoSuchFacultyInUniversityException, NoSuchGroupsOnThatFaculty, NoStudentsInTheGroupException, NoSuchScoreException {
-        double sumOfScore = 0;
-        long scoreQuantity = 0;
-        double averageScore = 0;
-
-        for (Faculty faculty : university.getFacultyList()) {
-            if (faculty.getFacultyName().equals(facultyName)) {
-                for (Group group : faculty.getGroupList()) {
-                    if (group.getGroupName().equals(groupName)) {
-                        for (Student student : group.getStudentList()) {
-                            sumOfScore += student.getSubjectAndScoreList().stream()
-                                    .filter(subjectAndScore -> subjectAndScore.getSubjectName().equals(subjectName))
-                                    .mapToDouble(SubjectAndScore::getSubjectScore)
-                                    .sum();
-                            scoreQuantity += student.getSubjectAndScoreList().stream()
-                                    .filter(subjectAndScore -> subjectAndScore.getSubjectName().equals(subjectName))
-                                    .mapToDouble(SubjectAndScore::getSubjectScore)
-                                    .count();
-                        }
-                        averageScore = sumOfScore / scoreQuantity;
-                    }
-
-                }
-            }
-        }
-        return Math.floor(averageScore);
-    }
-
-    public static double getAverageScoreOnCurrentSubjectForWholeUniversity(University university, SubjectName subjectName) throws NoSuchSubjectException, NoSuchFacultyInUniversityException, NoSuchGroupsOnThatFaculty, NoStudentsInTheGroupException, NoSuchScoreException {
-        double sumOfScore = 0;
-        long scoreQuantity = 0;
-        double averageScore = 0;
-        for (Faculty faculty : university.getFacultyList()) {
-            for (Group group : faculty.getGroupList()) {
-                for (Student student : group.getStudentList()) {
-                    sumOfScore = sumOfScore + student.getSubjectAndScoreList().stream()
-                            .filter(subjectAndScore -> subjectAndScore.getSubjectName().equals(subjectName))
-                            .mapToDouble(SubjectAndScore::getSubjectScore)
-                            .sum();
-                    scoreQuantity += student.getSubjectAndScoreList().stream()
-                            .filter(subjectAndScore -> subjectAndScore.getSubjectName().equals(subjectName))
-                            .mapToDouble(SubjectAndScore::getSubjectScore)
-                            .count();
-                }
-                averageScore = sumOfScore / scoreQuantity;
-            }
-
-        }
-        return Math.floor(averageScore);
-    }
 
 }
 

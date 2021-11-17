@@ -1,6 +1,4 @@
-package course.errorAndExceptions.classes;
-
-import course.errorAndExceptions.enums.SubjectName;
+package course.errorAndExceptions.models;
 
 
 public class SubjectAndScore {

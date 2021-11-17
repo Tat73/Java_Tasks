@@ -1,7 +1,6 @@
-package course.errorAndExceptions.classes;
+package course.errorAndExceptions.models;
 
 
-import course.errorAndExceptions.enums.GroupName;
 import course.errorAndExceptions.exceptions.NoStudentsInTheGroupException;
 
 import java.util.ArrayList;

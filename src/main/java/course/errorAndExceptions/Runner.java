@@ -1,26 +1,30 @@
 package course.errorAndExceptions;
 
-import course.errorAndExceptions.classes.University;
-import course.errorAndExceptions.enums.FacultyName;
-import course.errorAndExceptions.enums.GroupName;
-import course.errorAndExceptions.enums.SubjectName;
-import course.errorAndExceptions.exceptions.*;
-
-
-import static course.errorAndExceptions.UniversityMethods.*;
+import course.errorAndExceptions.models.FacultyName;
+import course.errorAndExceptions.models.GroupName;
+import course.errorAndExceptions.models.SubjectName;
+import course.errorAndExceptions.exceptions.NoStudentsInTheGroupException;
+import course.errorAndExceptions.exceptions.NoSuchFacultyInUniversityException;
+import course.errorAndExceptions.exceptions.NoSuchGroupsOnThatFacultyException;
+import course.errorAndExceptions.exceptions.NoSuchScoreException;
+import course.errorAndExceptions.exceptions.NoSuchSubjectException;
+import course.errorAndExceptions.services.CalculateAverageScoreService;
 
 public class Runner {
     public static void main(String[] args) {
         try {
-            University university = new University(createFacultiesWithGroups());
-            System.out.println("Average score for on student: " + getAverageScoreOfOneStudent(createStudents(),
-                    "Cole"));
+            CalculateAverageScoreService service = new CalculateAverageScoreService();
+            System.out.println("Average score for on student: " + service.getAverageScoreOfOneStudent(UniversityMethods.
+                            createStudents(),
+                    "Mary"));
             System.out.println("Average score for current faculty, group and subject: " +
-                    getAverageScoreOnCurrentSubjectGroupFaculty(university, SubjectName.HISTORY, GroupName.FIN, FacultyName.FINANCIAL));
+                    service.getAverageScoreOnCurrentSubjectGroupFaculty(UniversityMethods.createFacultiesWithGroups(),
+                            SubjectName.HISTORY, GroupName.FIN, FacultyName.FINANCIAL));
             System.out.println("Average score for current subject at whole university: " +
-                    getAverageScoreOnCurrentSubjectForWholeUniversity(university, SubjectName.ENGLISH));
+                    service.getAverageScoreOnCurrentSubjectForWholeUniversity(UniversityMethods.createFacultiesWithGroups(),
+                            SubjectName.ECONOMY));
         } catch (NoSuchScoreException | NoSuchSubjectException | NoStudentsInTheGroupException |
-                NoSuchGroupsOnThatFaculty | NoSuchFacultyInUniversityException e) {
+                NoSuchGroupsOnThatFacultyException | NoSuchFacultyInUniversityException e) {
             e.printStackTrace();
         }
     }

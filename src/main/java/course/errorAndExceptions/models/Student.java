@@ -1,7 +1,6 @@
-package course.errorAndExceptions.classes;
+package course.errorAndExceptions.models;
 
 
-import course.errorAndExceptions.enums.SubjectName;
 import course.errorAndExceptions.exceptions.NoSuchScoreException;
 import course.errorAndExceptions.exceptions.NoSuchSubjectException;
 
@@ -23,13 +22,21 @@ public class Student {
         this.studentName = studentName;
     }
 
-    public List<SubjectAndScore> getSubjectAndScoreList() throws NoSuchSubjectException, NoSuchScoreException {
+    public List<SubjectAndScore> getSubjectAndScoreList() {
         if (subjectAndScoreList == null || subjectAndScoreList.isEmpty()) {
-            throw new NoSuchSubjectException("check if student has subjects");
+            try {
+                throw new NoSuchSubjectException("check if student has subjects");
+            } catch (NoSuchSubjectException e) {
+                e.printStackTrace();
+            }
         }
         for (SubjectAndScore subjectAndScore : subjectAndScoreList) {
             if (subjectAndScore.getSubjectScore() > 10 || subjectAndScore.getSubjectScore() < 0) {
-                throw new NoSuchScoreException("check student`s score");
+                try {
+                    throw new NoSuchScoreException("check student`s score");
+                } catch (NoSuchScoreException e) {
+                    System.out.println("Unable to get subjectList" + " " + e.getMessage());
+                }
             }
         }
         return subjectAndScoreList;
