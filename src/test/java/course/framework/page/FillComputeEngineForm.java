@@ -61,7 +61,6 @@ public class FillComputeEngineForm extends AbstractPage {
     @FindBy(xpath = "//*[@id='select_value_label_449']")
     private WebElement entryGRUsNumber;
 
-
     @FindBy(xpath = "//*[@id='select_value_label_411']")
     private WebElement clickOnLocalSSD;
 
