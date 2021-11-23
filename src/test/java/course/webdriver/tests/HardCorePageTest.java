@@ -4,6 +4,8 @@ package course.webdriver.tests;
 import course.webdriver.page.CommonConditions;
 import course.webdriver.page.Email;
 import course.webdriver.page.HardCorePage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.JavascriptExecutor;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -13,6 +15,7 @@ import java.util.List;
 
 
 public class HardCorePageTest extends CommonConditions {
+    private Logger log = LogManager.getRootLogger();
 
     @Test(description = "Open browser")
     public void openNewBrowser() {
@@ -54,14 +57,14 @@ public class HardCorePageTest extends CommonConditions {
         driver.switchTo().frame(0);
         driver.switchTo().frame("myFrame");
 
-        System.out.println("frame 'myframe' is switched ");
+        log.info("frame 'myframe' is switched ");
         hardCorePage
-                .inputEmailToCalculator();
+                .inputEmailToCalculator(newEmail);
 
         Email email = new Email(driver);
         email
                 .openEmailPage()
-                .openEmailBox(newEmail);
+                .openEmailBox();
 
         Assert.assertEquals("Total Estimated Cost: " + email.getTotalCost() + " per 1 month",
                 sumFromCalculator);
